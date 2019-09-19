@@ -1,0 +1,8 @@
+# candidate of SIZE: XS, S, M, L, XL
+SIZE=XL
+# how many regions in i,j,k directions the domain is decomposed into
+IDIV=1
+JDIV=1
+KDIV=1
+# number of nodes
+N_NODE=1
