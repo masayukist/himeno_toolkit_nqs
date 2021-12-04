@@ -3,7 +3,7 @@ include ./autogen/Makefile.in
 default: ${BIN_SX} ${BIN_LX}
 
 ${BIN_SX}: ${SOURCE}
-	sxmpif90 $< -o $@
+	mpinfort $< -o $@
 	rm *.o
 
 ${BIN_LX}: ${SOURCE}

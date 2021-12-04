@@ -1,8 +1,8 @@
 # candidate of SIZE: XS, S, M, L, XL
-SIZE=XL
+export SIZE=XL
 # how many regions in i,j,k directions the domain is decomposed into
-IDIV=1
-JDIV=1
-KDIV=1
+export IDIV=1
+export JDIV=1
+export KDIV=1
 # number of nodes
-N_NODE=1
+export N_NODE=1
