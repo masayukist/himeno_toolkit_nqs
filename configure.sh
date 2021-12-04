@@ -22,7 +22,6 @@ echo Processes per node: $N_PROC_PER_NODE
 
 export OUTPUT_SUFFIX=nn_${N_NODE}_np_${N_PROC}_${SIZE}_${IDIV}-${JDIV}-${KDIV}
 
-export INFILE=./autogen/himeno.${OUTPUT_SUFFIX}.in
 export SOURCE=./autogen/himeno.${OUTPUT_SUFFIX}.f90
 export BIN_LX=./autogen/himeno_lx.${OUTPUT_SUFFIX}.bin
 export BIN_SX=./autogen/himeno_sx.${OUTPUT_SUFFIX}.bin
@@ -31,14 +30,9 @@ export JOB_SX=./autogen/himeno_sx.${OUTPUT_SUFFIX}.sh
 
 mkdir -p ./autogen
 
-sed -e s/himeno.in/himeno.${OUTPUT_SUFFIX}.in/ himenoBMTxpr.f90 > ${SOURCE}
+envsubst < himenoBMTxpr.template.f90 > ${SOURCE} 
 
-cat <<EOF > ${INFILE}
-$SIZE
-$IDIV
-$JDIV
-$KDIV
-EOF
+echo ${SOURCE} is set.
 
 cat <<EOF > ./autogen/Makefile.in
 INFILE=${INFILE}
@@ -48,8 +42,6 @@ BIN_SX=${BIN_SX}
 JOB_LX=${JOB_LX}
 JOB_SX=${JOB_SX}
 EOF
-
-echo ${INFILE} is set.
 
 ################ script for SX
 

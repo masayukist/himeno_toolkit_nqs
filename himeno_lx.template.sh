@@ -1,9 +1,8 @@
 #!/bin/sh
-
 #PBS -S /bin/sh
 #PBS -q lx
 #PBS -b $N_NODE
-#PBS -l elapstim_req=0:00:30
+#PBS -l elapstim_req=0:01:00
 #PBS -jo
 #PBS -o result_lx.${OUTPUT_SUFFIX}.txt
 #PBS -N ${OUTPUT_SUFFIX}
